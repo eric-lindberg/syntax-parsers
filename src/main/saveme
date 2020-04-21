@@ -1,0 +1,42 @@
+% start S
+
+S[HEAD=[POS=verb, AGR=?a]] -> Phrase[HEAD=[POS=verb, AGR=?a], VAL=[COMPS=itr, +SPR]]
+NP[HEAD=[POS=noun, AGR=?a]] -> Phrase[HEAD=[POS=noun, AGR=?a], VAL=[COMPS=itr, +SPR]]
+VP[HEAD=[POS=verb, AGR=?a]] -> Phrase[HEAD=[POS=verb, AGR=?a], VAL=[COMPS=itr, -SPR]]
+NOM -> Phrase[HEAD=[POS=noun], VAL=[COMPS=itr, -SPR]]
+PP -> Phrase[HEAD=[POS=prep], VAL=[COMPS=itr, -SPR]]
+
+N[HEAD=[AGR=?a], VAL=?v] -> W[HEAD=[POS=noun, AGR=?a], VAL=?v]
+V[HEAD=[AGR=?a], VAL=?v] -> W[HEAD=[POS=verb, AGR=?a], VAL=?v]
+D[HEAD=[AGR=?a]] -> W[HEAD=[POS=det, AGR=?a], VAL=[COMPS=itr, +SPR]]
+P -> W[HEAD=[POS=prep]]
+
+# Head Complement 1, 2, 3
+Phrase[HEAD=?h, VAL=[COMPS=itr, -SPR]] -> W[HEAD=?h, VAL=[COMPS=itr, -SPR]]
+Phrase[HEAD=?h, VAL=[COMPS=itr, -SPR]] -> W[HEAD=?h, VAL=[COMPS=str, -SPR]] NP 
+Phrase[HEAD=?h, VAL=[COMPS=itr, -SPR]] -> W[HEAD=?h, VAL=[COMPS=dtr, -SPR]] NP NP
+
+# Head Specifier 1, 2
+Phrase[HEAD=[POS=verb, AGR=?a], VAL=[COMPS=itr, +SPR]] -> NP[HEAD=[AGR=?a]] Phrase[HEAD=[POS=verb, AGR=?a], VAL=[-SPR]]
+Phrase[HEAD=[POS=noun, AGR=?a], VAL=[COMPS=itr, +SPR]] -> D Phrase[HEAD=[POS=noun, AGR=?a], VAL=[-SPR]]
+
+# Non-Branching NP Rule
+Phrase[HEAD=[AGR=?a], VAL=[COMPS=itr, +SPR]] -> W[HEAD=[POS=noun, AGR=?a], VAL=[+SPR]]
+
+# Head-Modifier Rule
+Phrase[HEAD=?h, VAL=[COMPS=itr, -SPR]] -> Phrase[HEAD=?h, VAL=[-SPR]] PP
+
+# Coordination Rule
+NPLIST -> NP | NP NPLIST
+NP -> NPLIST W[HEAD=[POS=conj]] NP
+
+# Lexicon
+W[HEAD=[POS=verb, AGR=[NUM=sg, PER=3]], VAL=[COMPS=itr, -SPR]] -> 'walks'
+W[HEAD=[POS=verb, AGR=[NUM=pl]], VAL=[COMPS=itr, -SPR]] -> 'walk'
+W[HEAD=[POS=verb, AGR=[NUM=sg, PER=3]], VAL=[COMPS=str, -SPR]] -> 'denies'
+W[HEAD=[POS=verb, AGR=[NUM=pl]], VAL=[COMPS=str, -SPR]] -> 'deny'
+W[HEAD=[POS=noun, AGR=[NUM=sg, PER=3]], VAL=[COMPS=itr, -SPR]] -> 'defendant'
+W[HEAD=[POS=det], VAL=[COMPS=itr, +SPR]] -> 'the'
+W[HEAD=[POS=noun, AGR=[NUM=sg, PER=3]], VAL=[COMPS=itr, +SPR]] -> 'Chris'
+W[HEAD=[POS=noun, AGR=[PER=2]], VAL=[COMPS=itr, +SPR]] -> 'you'
+W[HEAD=[POS=conj], VAL=[COMPS=itr, +SPR]] -> 'and'

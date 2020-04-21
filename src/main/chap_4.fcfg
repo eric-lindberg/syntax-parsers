@@ -1,0 +1,32 @@
+% start S
+
+# Define item definition, irrespective of Word or Phrase type
+X[HEAD=?h, VAL=?v] -> W[HEAD=?h, VAL=?v]
+X[HEAD=?h, VAL=?v] -> P[HEAD=?h, VAL=?v]
+
+# Statement is Verb Phrase
+S[TYPE=S, HEAD=[POS=verb, AGR=?a]] -> P[HEAD=[POS=verb, AGR=?a], VAL=[SPR=nil, COMPS=nil]]
+
+# Head Specifier Rule
+P[HEAD=[POS=?pos, AGR=?a], VAL=[SPR=nil, COMPS=nil]] -> X[HEAD=[POS=?spr, AGR=?a], VAL=[SPR=nil, COMPS=nil]] X[HEAD=[POS=?pos, AGR=?a], VAL=[SPR=?spr, COMPS=nil]]
+
+# Head Complement Rule
+P[HEAD=?h, VAL=[COMPS=nil, SPR=nil]] -> X[HEAD=?h, VAL=[COMPS=nil, SPR=nil]]
+P[HEAD=?h, VAL=[COMPS=?cdr, SPR=?s]] -> X[HEAD=?h, VAL=[COMPS=[FIRST=?car, REST=?cdr], SPR=?s]] X[HEAD=[POS=?car], VAL=[SPR=nil]]
+
+# Head Modifier Rule
+P[HEAD=?h, VAL=[SPR=?s]] -> X[HEAD=?h, VAL=[COMPS=nil, SPR=?s]] P[HEAD=[POS=prep]]
+
+# Coordination Rule
+X[VAL=?v] -> COORDLIST[VAL=?v] W[HEAD=[POS=conj]] X[VAL=?v]
+COORDLIST[VAL=?v] -> X[VAL=?v] | COORDLIST[VAL=?v] X[VAL=?v]
+
+
+# Lexicon
+W[HEAD=[POS=noun, AGR=[PER=1, NUM=sg]], VAL=[SPR=nil, COMPS=nil]] -> 'i'
+W[HEAD=[POS=noun, AGR=[PER=3, NUM=sg]], VAL=[SPR=det, COMPS=nil]] -> 'dog'
+W[HEAD=[POS=noun, AGR=[PER=3, NUM=sg]], VAL=[SPR=nil, COMPS=nil]] -> 'furniture'
+W[HEAD=[POS=det, AGR=[PER=3, NUM=sg], +COUNT], VAL=[SPR=nil, COMPS=nil]] -> 'a'
+W[HEAD=[POS=det, AGR=[PER=3, NUM=sg], -COUNT], VAL=[SPR=nil, COMPS=nil]] -> 'much'
+W[HEAD=[POS=verb, AGR=[PER=3, NUM=sg]], VAL=[SPR=noun, COMPS=nil]] -> 'barks'
+W[HEAD=[POS=verb, AGR=[PER=1, NUM=sg]], VAL=[SPR=noun, COMPS=[FIRST=noun, REST=nil]]] -> 'like'
