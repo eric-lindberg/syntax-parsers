@@ -14,16 +14,15 @@ from the src repository. Here, you can load the appropriate grammar and type in 
 
 Requires python3 and nltk to run.
 
-```
-Give examples
-```
 ### Installing
 
-On Windows/Mac: 
+Installing both python3 and nltk on Windows/Mac: 
 https://www.guru99.com/download-install-nltk.html
 
-On Linux:
+Intalling python3 on Linux:
 https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
+
+Installing nltk for python3 on Linux:
 https://askubuntu.com/questions/996185/how-can-i-install-nltk-for-python-3
 
 
