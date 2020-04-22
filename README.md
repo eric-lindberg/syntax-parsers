@@ -10,7 +10,8 @@ The system is designed to be run from within Eclipse or PyCharm, but you should 
 
 In the app, load the desired grammar file and type in a sample sentence.
 
-```> #load chap_3.fcfg
+```
+> #load chap_3.fcfg
 Parser with grammar "chap_3.fcfg" successfully loaded
 > you and chris deny the defendant
 ```
