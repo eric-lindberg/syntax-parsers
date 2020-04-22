@@ -31,7 +31,3 @@ https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
 Installing nltk for python3 on Linux:
 https://askubuntu.com/questions/996185/how-can-i-install-nltk-for-python-3
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
