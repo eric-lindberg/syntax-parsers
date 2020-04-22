@@ -12,7 +12,8 @@ In the app, load the desired grammar file and type in a sample sentence.
 
 ```> #load chap_3.fcfg
 Parser with grammar "chap_3.fcfg" successfully loaded
-> you and chris deny the defendant```
+> you and chris deny the defendant
+```
 
 from the src repository. Here, you can load the appropriate grammar and type in sample sentences, which the system will then try to parse.
 
