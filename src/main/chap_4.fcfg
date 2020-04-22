@@ -12,7 +12,7 @@ P[HEAD=[POS=?pos, AGR=?a], VAL=[SPR=nil, COMPS=nil]] -> X[HEAD=[POS=?spr, AGR=?a
 
 # Head Complement Rule
 P[HEAD=?h, VAL=[COMPS=nil, SPR=nil]] -> X[HEAD=?h, VAL=[COMPS=nil, SPR=nil]]
-P[HEAD=?h, VAL=[COMPS=?cdr, SPR=?s]] -> X[HEAD=?h, VAL=[COMPS=[FIRST=?car, REST=?cdr], SPR=?s]] X[HEAD=[POS=?car], VAL=[SPR=nil]]
+P[HEAD=?h, VAL=[COMPS=?cdr, SPR=?s]] -> X[HEAD=?h, VAL=[COMPS=[FIRST=?car, REST=?cdr], SPR=?s]] X[HEAD=[POS=?car], VAL=[SPR=nil, COMPS=nil]]
 
 # Head Modifier Rule
 P[HEAD=?h, VAL=[SPR=?s]] -> X[HEAD=?h, VAL=[COMPS=nil, SPR=?s]] P[HEAD=[POS=prep]]
