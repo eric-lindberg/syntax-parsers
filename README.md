@@ -6,7 +6,13 @@ Sample grammars based on the book _Syntactic Theory_ by Sag, Wasow, and Bender.
 
 The system is designed to be run from within Eclipse or PyCharm, but you should be able to run the grammar by invoking
 
-`python3 main.py`
+`$ python3 main.py`
+
+In the app, load the desired grammar file and type in a sample sentence.
+
+`> #load chap_3.fcfg
+Parser with grammar "chap_3.fcfg" successfully loaded
+> you and chris deny the defendant`
 
 from the src repository. Here, you can load the appropriate grammar and type in sample sentences, which the system will then try to parse.
 
